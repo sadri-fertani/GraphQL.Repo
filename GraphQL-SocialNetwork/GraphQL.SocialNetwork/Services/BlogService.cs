@@ -109,6 +109,13 @@ namespace GraphQL.SocialNetwork.Services
             return authors.Where(author => author.Id == id).FirstOrDefault<Author>();
         }
 
+        public List<Author> GetAuthorByIds(int[] ids)
+        {
+            return authors.Where(author => ids.Contains(author.Id)).ToList<Author>();
+        }
+
+        
+
         public List<Post> GetPostsByAuthor(int id)
         {
             return posts.Where(post => post.Author.Id == id).ToList<Post>();

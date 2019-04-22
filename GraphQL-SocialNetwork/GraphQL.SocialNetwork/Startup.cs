@@ -4,11 +4,14 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using GraphiQl;
 
 namespace GraphQL.SocialNetwork
 {
     public class Startup
     {
+        public const string GRAPH_QL_ROUTE = "/graphql";
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -35,6 +38,7 @@ namespace GraphQL.SocialNetwork
                 app.UseHsts();
             }
 
+            app.UseGraphiQl(Startup.GRAPH_QL_ROUTE);
             app.UseHttpsRedirection();
             app.UseMvc();
         }
