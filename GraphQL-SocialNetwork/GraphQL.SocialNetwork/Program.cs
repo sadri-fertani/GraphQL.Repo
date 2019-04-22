@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 
-namespace GraphQL_SocialNetwork
+namespace GraphQL.SocialNetwork
 {
     public class Program
     {
