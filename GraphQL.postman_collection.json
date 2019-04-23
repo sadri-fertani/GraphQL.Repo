@@ -1,0 +1,39 @@
+{
+	"info": {
+		"_postman_id": "242a7208-6702-4809-84b6-75003992662e",
+		"name": "GraphQL",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "https://localhost:44378/graphql",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"query\": \"query GetBlogData($id: Int) {\n\t  \tauthor(id: $id) {\n\t  \t\tid\n\t  \t\tname\n\t  \t}\n\t  \tposts(id: $id) {\n\t  \t\tauthor {\n\t  \t\t\tbio\n\t  \t\t}\n\t  \t\tcategories\n\t  \t\tcomments {\n\t  \t\t\tdescription\n\t  \t\t\tcount\n\t  \t\t\turl\n\t  \t\t}\n\t  \t}\n\t  \tsocials(id: $id) {\n\t  \t\tnickName\n\t  \t\ttype\n\t  \t}\n\t}\",\n\t\"variables\": {\n\t    \"id\": 1\n\t  },\n\t\"OperationName\": \"GetBlogData\"\n}"
+				},
+				"url": {
+					"raw": "https://localhost:44378/graphql",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44378",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
