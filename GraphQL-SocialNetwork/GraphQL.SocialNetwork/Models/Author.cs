@@ -1,4 +1,6 @@
-﻿namespace GraphQL.SocialNetwork.Models
+﻿using System.Collections.Generic;
+
+namespace GraphQL.SocialNetwork.Models
 {
     public class Author
     {
@@ -7,5 +9,6 @@
         public string Bio { get; set; }
         public string ImgUrl { get; set; }
         public string ProfileUrl { get; set; }
+        public List<SocialNet> SocialsNet { get; set; }
     }
 }

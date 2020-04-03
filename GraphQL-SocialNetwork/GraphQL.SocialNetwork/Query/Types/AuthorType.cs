@@ -12,6 +12,7 @@ namespace GraphQL.SocialNetwork.Query.Types
             Field(x => x.Bio).Description("Bio description of an author");
             Field(x => x.ImgUrl).Description("Url of an author's profile picture");
             Field(x => x.ProfileUrl).Description("Link of an author's profile");
+            Field<ListGraphType<SocialNetworkType>>("socialsNet");
         }
     }
 }

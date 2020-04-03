@@ -7,6 +7,7 @@ namespace GraphQL.SocialNetwork.Query.Types
     {
         public CommentType()
         {
+            Field(x => x.Id);
             Field(x => x.Count);
             Field(x => x.Description);
             Field(x => x.Url);

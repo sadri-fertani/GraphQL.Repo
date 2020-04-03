@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using GraphiQl;
+using GraphQL.SocialNetwork.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace GraphQL.SocialNetwork
 {
@@ -22,13 +24,25 @@ namespace GraphQL.SocialNetwork
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddScoped<BlogService>();
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services
+                .AddScoped<BlogService>();
+            services
+                .AddDbContext<AppGraphQLDbContext>();
+            services
+                .AddCors();
+            services
+                .AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+            app.UseCors(builder => builder
+                .AllowAnyOrigin()
+                .AllowAnyHeader()
+                .AllowAnyMethod()
+            );
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

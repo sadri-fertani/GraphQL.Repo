@@ -15,7 +15,7 @@ namespace GraphQL.SocialNetwork.Query.Types
             Field<AuthorType>("author");
             Field<RatingType>("rating");
             Field<ListGraphType<CommentType>>("comments");
-            Field(x => x.Categories, nullable: true);
+            Field<ListGraphType<CategorieType>>("categories");
         }
     }
 }

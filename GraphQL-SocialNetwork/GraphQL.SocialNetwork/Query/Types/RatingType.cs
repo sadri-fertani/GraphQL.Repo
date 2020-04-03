@@ -7,6 +7,7 @@ namespace GraphQL.SocialNetwork.Query.Types
     {
         public RatingType()
         {
+            Field(x => x.Id);
             Field(x => x.Count);
             Field(x => x.Percent);
         }

@@ -7,10 +7,10 @@ namespace GraphQL.SocialNetwork.Query.Types
     {
         public SocialNetworkType()
         {
+            Field(x => x.Id);
             Field(x => x.NickName);
             Field<EnumerationGraphType<SNType>>("type");
             Field(x => x.Url);
-            Field<AuthorType>("author");
         }
     }
 }

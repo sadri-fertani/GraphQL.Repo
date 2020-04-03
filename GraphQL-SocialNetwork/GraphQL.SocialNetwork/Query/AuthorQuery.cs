@@ -37,8 +37,9 @@ namespace GraphQL.SocialNetwork.Query
                 arguments: new QueryArguments(new QueryArgument<IntGraphType> { Name = "id" }),
                 resolve: context =>
                 {
+                    
                     var id = context.GetArgument<int>("id");
-                    return blogService.GetSNsByAuthor(id);
+                    return blogService.GetAuthorById(id).SocialsNet;
                 }
             );
         }

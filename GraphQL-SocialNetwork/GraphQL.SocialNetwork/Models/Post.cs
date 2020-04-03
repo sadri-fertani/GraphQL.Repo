@@ -11,7 +11,7 @@ namespace GraphQL.SocialNetwork.Models
         public DateTime Date { get; set; }
         public string Url { get; set; }
         public Author Author { get; set; }
-        public string[] Categories { get; set; }
+        public List<Categorie> Categories { get; set; }
         public Rating Rating { get; set; }
         public List<Comment> Comments { get; set; }
     }

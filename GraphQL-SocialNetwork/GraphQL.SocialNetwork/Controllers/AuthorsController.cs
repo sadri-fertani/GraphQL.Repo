@@ -31,11 +31,5 @@ namespace GraphQL.SocialNetwork.Controllers
         {
             return new ObjectResult(blogService.GetPostsByAuthor(id));
         }
-
-        [HttpGet("{id}/socials")]
-        public IActionResult GetSocialsByAuthor(int id)
-        {
-            return new ObjectResult(blogService.GetSNsByAuthor(id));
-        }
     }
 }
