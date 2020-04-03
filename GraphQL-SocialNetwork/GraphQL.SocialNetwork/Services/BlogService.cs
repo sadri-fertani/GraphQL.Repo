@@ -42,6 +42,8 @@ namespace GraphQL.SocialNetwork.Services
             return this._ctx.Posts
                 .Include("Categories").Where(x => x.Categories.Any())
                 .Include("Comments").Where(x => x.Categories.Any())
+                .Include("Rating")
+                .Include("Author")
                 .Where(post => post.Author.Id == id)
                 .ToList<Post>();
         }
