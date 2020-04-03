@@ -15,8 +15,8 @@
                 <p class="card-text">{{currentBlog.data.author.bio}}</p>
                 <a *ngFor="let social of currentBlog.data.socials" href="#" class="card-link">{{social.type}} </a>
                 <div *ngFor="let post of currentBlog.data.posts" class="card-body">
-                    <h5 class="card-subtitle">{{post.categories}}</h5>
-                    <h6 class="card-subtitle">{{post.comments.description}}</h6>
+                    <h5 *ngFor="let categorie of post.categories" class="card-subtitle">{{categorie.name}}</h5>
+                    <h6 *ngFor="let comment of post.comments" class="card-subtitle">{{comment.description}}</h6>
                 </div>
             </div>
         </div>

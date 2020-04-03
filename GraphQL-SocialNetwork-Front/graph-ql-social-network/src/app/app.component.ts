@@ -16,7 +16,7 @@ import { BlogResponse } from '../graspql-type/types';
 export class AppComponent implements OnInit {
   title = 'graph-ql-social-network';
 
-  private currentBlog$ : Observable<ApolloQueryResult<BlogResponse>>
+  public currentBlog$ : Observable<ApolloQueryResult<BlogResponse>>
 
   constructor(private readonly blogGetQuery: BlogGetQuery, private apollo:Apollo) {
   }

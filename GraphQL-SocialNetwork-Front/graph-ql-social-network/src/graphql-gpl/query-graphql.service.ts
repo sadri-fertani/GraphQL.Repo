@@ -7,27 +7,29 @@ import { BlogResponse, BlogVariables } from 'src/graspql-type/types';
 @Injectable()
 export class BlogGetQuery extends Query<BlogResponse, BlogVariables> {
   document = gql`
-    query GetBlogData($id: Int) {
-      author(id: $id) {
-        id
-        name
+  query GetBlogData($id: Int) {
+    author(id: $id) {
+      id
+      name
+    }
+    posts(id: $id) {
+      author {
         bio
       }
-      posts(id: $id) {
-        author {
-          bio
-        }
-        categories
-        comments {
-          description
-          count
-          url
-        }
+      categories {
+        id
+        name
       }
-      socials(id: $id) {
-        nickName
-        type
+      comments {
+        description
+        count
+        url
       }
     }
+    socials(id: $id) {
+      nickName
+      type
+    }
+  }
 	`;
 }
