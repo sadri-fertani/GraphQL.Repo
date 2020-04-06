@@ -21,10 +21,18 @@ namespace GraphQL.SocialNetwork.Controllers
         {
             IObjectGraphType currentObjectGraphType = null;
 
-            if (query.OperationName == "GetAuthors")
-                currentObjectGraphType = new AuthorsQuery(blogService);
-            else
-                currentObjectGraphType = new AuthorQuery(blogService);
+            switch (query.OperationName)
+            {
+                case "GetBlogData":
+                    currentObjectGraphType = new BlogQuery(blogService);
+                    break;
+                case "GetAuthors":
+                    currentObjectGraphType = new AuthorsQuery(blogService);
+                    break;
+                default:
+                    currentObjectGraphType = new BlogQuery(blogService);
+                    break;
+            }
 
             var schema = new Schema { Query = currentObjectGraphType };
 
@@ -39,6 +47,7 @@ namespace GraphQL.SocialNetwork.Controllers
             {
                 return BadRequest();
             }
+
             return Ok(result);
         }
     }

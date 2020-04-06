@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace GraphQL.SocialNetwork.Query
 {
-    public class AuthorQuery : ObjectGraphType
+    public class BlogQuery : ObjectGraphType
     {
-        public AuthorQuery(BlogService blogService)
+        public BlogQuery(BlogService blogService)
         {
             Field<AuthorType>(
                 name: "author",
